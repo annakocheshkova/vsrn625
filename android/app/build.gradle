@@ -119,6 +119,14 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            buildConfigField("String", "sha", "d2b52891c3be3e3")
+            buildConfigField("String", "repo_owner", "sergey-akhalkov")
+            buildConfigField("String", "repo_name", "vsrn-625")
+            buildConfigField("String", "appcenter_owner_type", "users")
+            buildConfigField("String", "appcenter_owner", "sergey.akhalkov")
+            buildConfigField("String", "appcenter_app", "vsrn-625")
+            buildConfigField("String", "branch_template", "test-pr3")
+            buildConfigField("String", "github_token", "e2d18f5f177908e7acd401d1d7da25b13b1")
         }
     }
     // applicationVariants are e.g. debug, release
