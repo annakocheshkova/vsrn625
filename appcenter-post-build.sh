@@ -10,12 +10,12 @@ github_notify_build_passed() {
   -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "User-Agent: appcenter-ci" \
   -H "Content-Type: application/json" \
-  --data `{
-          "state": "success",
-          "target_url": "https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}",
-          "description": "App Center build successfully created.",
-          "context": "continuous-integration/appcenter"
-        }` \
+  --data "{
+          \"state\": \"success\",
+          \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}\",
+          \"description\": \"App Center build successfully created.\",
+          \"context\": \"continuous-integration/appcenter\"
+        }" \
        https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
 
@@ -24,12 +24,12 @@ github_notify_build_failed() {
   -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "User-Agent: appcenter-ci" \
   -H "Content-Type: application/json" \
-  --data `{
-          "state": "failure",
-          "target_url": "https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}",
-          "description": "Errors occurred during App Center build.",
-          "context": "continuous-integration/appcenter"
-        }` \
+  --data "{
+          \"state\": \"failure\",
+          \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}\",
+          \"description\": \"Errors occurred during App Center build.\",
+          \"context\": \"continuous-integration/appcenter\"
+        }" \
         https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
 
