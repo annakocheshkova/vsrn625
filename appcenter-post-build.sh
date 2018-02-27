@@ -7,35 +7,47 @@
 
 github_notify_build_passed() {
   curl -H "Content-Type: application/json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "User-Agent: appcenter-ci" \
   -H "Content-Type: application/json" \
   --data '{
           "state": "success",
-          "target_url": "https://appcenter.ms/$appcenter_owner_type/$appcenter_owner/apps/$appcenter_app/build/branches/$branch_template",
+          "target_url": "https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}",
           "description": "App Center build successfully created.",
           "context": "continuous-integration/appcenter"
         }' \
-       https://api.github.com/repos/$repo_owner/$repo_name/statuses/$sha
+       https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
 
 github_notify_build_failed() {
   curl -H "Content-Type: application/json" \
-  -H "Authorization: token $GITHUB_TOKEN" \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "User-Agent: appcenter-ci" \
   -H "Content-Type: application/json" \
   --data '{
           "state": "failure",
-          "target_url": "https://appcenter.ms/$appcenter_owner_type/$appcenter_owner/apps/$appcenter_app/build/branches/$branch_template",
+          "target_url": "https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}",
           "description": "Errors occurred during App Center build.",
           "context": "continuous-integration/appcenter"
         }' \
-        https://api.github.com/repos/$repo_owner/$repo_name/statuses/$sha
+        https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
 
 if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
     github_notify_build_failed
     exit 0
 fi
+
+echo "====="
+echo ${repo_owner}
+echo ${USER-DEFINED_REPO_OWNER}
+echo ${repo_name}
+echo ${USER-DEFINED_REPO_NAME}
+echo ${sha}
+echo ${USER-DEFINED_SHA}
+echo "====="
+echo '"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}"'
+echo https://api.github.com/repos/{$repo_owner}/{$repo_name}/statuses/${sha}
+echo "====="
 
 github_notify_build_passed
