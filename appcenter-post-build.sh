@@ -38,4 +38,6 @@ if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
     exit 0
 fi
 
+env 
+
 github_notify_build_passed
