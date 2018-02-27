@@ -16,7 +16,7 @@ github_notify_build_passed() {
           "description": "App Center build successfully created.",
           "context": "continuous-integration/appcenter"
         }' \
-       https://api.github.com/repos/{$repo_owner}/{$repo_name}/statuses/${sha}
+       https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
 
 github_notify_build_failed() {
