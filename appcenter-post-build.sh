@@ -12,7 +12,7 @@ github_notify_build_passed() {
   -H "Content-Type: application/json" \
   --data "{
           \"state\": \"success\",
-          \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}\",
+          \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${APPCENTER_BRANCH}\",
           \"description\": \"App Center build successfully created.\",
           \"context\": \"continuous-integration/appcenter\"
         }" \
@@ -26,7 +26,7 @@ github_notify_build_failed() {
   -H "Content-Type: application/json" \
   --data "{
           \"state\": \"failure\",
-          \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${branch_template}\",
+          \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${APPCENTER_BRANCH}\",
           \"description\": \"Errors occurred during App Center build.\",
           \"context\": \"continuous-integration/appcenter\"
         }" \
