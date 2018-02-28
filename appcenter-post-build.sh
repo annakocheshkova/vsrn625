@@ -21,7 +21,7 @@ github_notify_build_passed() {
           \"description\": \"App Center build successfully created.\",
           \"context\": \"appcenter-ci/${prbuild_appcenter_app}\"
         }" \
-       https://api.github.com/repos/${prbuild_repo_owner}/${prbuild_repo_name}/statuses/${SHA##*@}
+       https://api.github.com/repos/${prbuild_repo_owner}/${prbuild_repo_name}/statuses/${SHA}
 }
 
 github_notify_build_failed() {
@@ -35,7 +35,7 @@ github_notify_build_failed() {
           \"description\": \"Errors occurred during App Center build.\",
           \"context\": \"appcenter-ci/${prbuild_appcenter_app}\"
         }" \
-        https://api.github.com/repos/${prbuild_repo_owner}/${prbuild_repo_name}/statuses/${SHA##*@}
+        https://api.github.com/repos/${prbuild_repo_owner}/${prbuild_repo_name}/statuses/${SHA}
 }
 
 if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
