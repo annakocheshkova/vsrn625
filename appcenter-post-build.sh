@@ -12,9 +12,9 @@ github_notify_build_passed() {
   -H "Content-Type: application/json" \
   --data "{
           \"state\": \"success\",
-          \"target_url\": \"https://appcenter.ms/${prbuild_appcenter_owner_type}/${prbuild_appcenter_owner}/apps/${prbuild_appcenter_app}/build/branches/${APPCENTER_BRANCH}\",
+          \"target_url\": \"https://appcenter.ms/${prbuild_appcenter_owner_type}/${prbuild_appcenter_owner}/apps/${prbuild_appcenter_app}/build/branches/${APPCENTER_BRANCH}/build/${APPENTER_BUILD_ID}\",
           \"description\": \"App Center build successfully created.\",
-          \"context\": \"continuous-integration/appcenter/${prbuild_appcenter_app}\"
+          \"context\": \"appcenter-ci/${prbuild_appcenter_app}\"
         }" \
        https://api.github.com/repos/${prbuild_repo_owner}/${prbuild_repo_name}/statuses/${SHA##*@}
 }
@@ -26,9 +26,9 @@ github_notify_build_failed() {
   -H "Content-Type: application/json" \
   --data "{
           \"state\": \"failure\",
-          \"target_url\": \"https://appcenter.ms/${prbuild_appcenter_owner_type}/${prbuild_appcenter_owner}/apps/${prbuild_appcenter_app}/build/branches/${APPCENTER_BRANCH}\",
+          \"target_url\": \"https://appcenter.ms/${prbuild_appcenter_owner_type}/${prbuild_appcenter_owner}/apps/${prbuild_appcenter_app}/build/branches/${APPCENTER_BRANCH}/build/${APPENTER_BUILD_ID}\",
           \"description\": \"Errors occurred during App Center build.\",
-          \"context\": \"continuous-integration/appcenter/${prbuild_appcenter_app}\"
+          \"context\": \"appcenter-ci/${prbuild_appcenter_app}\"
         }" \
         https://api.github.com/repos/${prbuild_repo_owner}/${prbuild_repo_name}/statuses/${SHA##*@}
 }
