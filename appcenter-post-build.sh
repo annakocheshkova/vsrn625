@@ -4,7 +4,12 @@
 # a successful build occurred against that sha. It can be used in conjunction
 # with the Azure Function to create a end to end PR check workflow or alone if
 # you only wish to check branches preconfigured for continuous builds in App Center.
-SHA = git rev-parse HEAD 2> /dev/null | sed "s/\(.*\)/@\1/"
+ 
+function parse_git_hash() {
+  git rev-parse HEAD 
+}
+
+SHA=$(parse_git_hash)
 github_notify_build_passed() {
   curl -H "Content-Type: application/json" \
   -H "Authorization: token ${prbuild_GITHUB_TOKEN}" \
@@ -38,5 +43,4 @@ if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
     exit 0
 fi
 
-${SHA##*@}
 github_notify_build_passed
