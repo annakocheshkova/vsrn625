@@ -14,7 +14,7 @@ github_notify_build_passed() {
           \"state\": \"success\",
           \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${APPCENTER_BRANCH}\",
           \"description\": \"App Center build successfully created.\",
-          \"context\": \"continuous-integration/appcenter\"
+          \"context\": \"continuous-integration/appcenter/${appcenter_app}\"
         }" \
        https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
@@ -28,7 +28,7 @@ github_notify_build_failed() {
           \"state\": \"failure\",
           \"target_url\": \"https://appcenter.ms/${appcenter_owner_type}/${appcenter_owner}/apps/${appcenter_app}/build/branches/${APPCENTER_BRANCH}\",
           \"description\": \"Errors occurred during App Center build.\",
-          \"context\": \"continuous-integration/appcenter\"
+          \"context\": \"continuous-integration/appcenter/${appcenter_app}\"
         }" \
         https://api.github.com/repos/${repo_owner}/${repo_name}/statuses/${sha}
 }
