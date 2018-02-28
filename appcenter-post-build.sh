@@ -26,7 +26,7 @@ github_notify_build_passed() {
 
 github_notify_build_failed() {
   curl -H "Content-Type: application/json" \
-  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -H "Authorization: token ${prbuild_GITHUB_TOKEN}" \
   -H "User-Agent: appcenter-ci" \
   -H "Content-Type: application/json" \
   --data "{
