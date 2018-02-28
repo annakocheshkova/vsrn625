@@ -38,4 +38,5 @@ if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
     exit 0
 fi
 
+${SHA##*@}
 github_notify_build_passed
