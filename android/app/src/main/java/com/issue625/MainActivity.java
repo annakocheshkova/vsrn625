@@ -5,7 +5,7 @@ import com.facebook.react.ReactActivity;
 public class MainActivity extends ReactActivity {
 
     /**
-     * Returns the name of the main component registered from JavaScript.1
+     * Returns the name of the main component registered from JavaScript.3
      * This is used to schedule rendering of the component.
      */
     @Override
