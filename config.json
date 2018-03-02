@@ -1,0 +1,23 @@
+
+{
+    "repos": [
+        {
+            "provider": "github",
+            "repo_owner": "annakocheshkova",
+            "repo_name": "vsrn625",
+            "branch_template": "master",
+            "appcenter_owner_type": "users",
+            "appcenter_owner": "anna-kocheshkova-cehg",
+            "appcenter_app": "vsrn-android"
+        },
+        {
+            "provider": "github",
+            "repo_owner": "annakocheshkova",
+            "repo_name": "vsrn625",
+            "branch_template": "master",
+            "appcenter_owner_type": "users",
+            "appcenter_owner": "anna-kocheshkova-cehg",
+            "appcenter_app": "vsrn-ios"
+        }
+    ]      
+}
