@@ -28,7 +28,7 @@ github_notify_build_state() {
     \"appcenter_app\": \"${PR_APPCENTER_APP}\"
         }" \
         #https://appcenterfunctions.azurewebsites.net/api/PrCheckSetup
-        http://localhost:7071/api/PrCheckSetup
+        http://27373070.ngrok.io/api/PrCheckSetup
        #https://api.github.com/repos/${PR_GITHUB_REPO}/statuses/${SHA}
 }
 
