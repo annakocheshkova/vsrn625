@@ -27,9 +27,7 @@ github_notify_build_state() {
     \"succeeded\":\"${SUCCEEDED}\", 
     \"appcenter_app\": \"${PR_APPCENTER_APP}\"
         }" \
-        #https://appcenterfunctions.azurewebsites.net/api/PrCheckSetup
-        http://27373070.ngrok.io/api/PrCheckSetup
-       #https://api.github.com/repos/${PR_GITHUB_REPO}/statuses/${SHA}
+    http://27373070.ngrok.io/api/PrCheckSetup
 }
 
 if [ "$AGENT_JOBSTATUS" != "Succeeded" ]; then
